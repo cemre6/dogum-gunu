@@ -1,5 +1,7 @@
 # Doğum Günü Web Sitesi
 
+> Bu satır test amaçlı eklenmiştir.
+
 Bu proje, özel bir doğum günü web sitesini Docker konteynerinde çalıştırmak için hazırlanmıştır.
 
 ## Kurulum ve Çalıştırma
