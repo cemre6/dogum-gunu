@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>İyi ki doğdun Aşkım</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="floating-hearts"></div>
+
+  <!-- 1. Açılış Sayfası -->
+  <section id="hero">
+    <div class="hero-content">
+      <h1 class="animate-text">İyi ki doğdun, Canim Sevgilim 💖</h1>
+      <button class="glow-button" onclick="scrollToSection('gallery')">
+        <i class="fas fa-heart"></i>  Başla
+      </button>
+    </div>
+  </section>
+
+  <!-- 2. Galeri -->
+  <section id="gallery">
+    <div class="photos">
+      <div class="photo-container">
+        <img src="img1.jpeg" alt="Göl Kenarında Selfie" class="hover-zoom" />
+      </div>
+      <div class="photo-container">
+        <img src="img2.jpeg" alt="Romantik An" class="hover-zoom" />
+      </div>
+      <div class="photo-container">
+        <img src="img3.jpeg" alt="Romantik An" class="hover-zoom" />
+      </div>
+      <div class="photo-container">
+        <img src="img4.jpeg" alt="Romantik An" class="hover-zoom" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 3. Doğum Günü Dileği -->
+  <section id="birthday-wish">
+    <div class="video-container">
+      <div class="video-wrapper">
+        <div class="video-overlay">
+          <i class="fas fa-birthday-cake cake-icon"></i>
+          <p class="play-button" onclick="playBirthdayVideo()">Beraber Mum Üfleyelim</p>
+        </div>
+        <video id="birthday-video" src="dogumgunu.mp4" style="display: none;">
+          Tarayıcınız video oynatmayı desteklemiyor.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. Kalp Mesajı -->
+  <section id="love-message">
+    <div class="love-container">
+      <div class="love-message">
+        <p class="main-message">Seni sevmek için bir nedene ihtiyacım yok...</p>
+        <p class="sub-message">Çünkü sen benim için nedenin ta kendisisin.</p>
+        <div class="heart-animation">
+          <i class="fas fa-heart"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5. Sürpriz Kutular -->
+  <section id="surprises">
+    <h2 class="section-title">Sana Özel 🎁</h2>
+    <div class="gifts">
+      <button class="surprise-button" onclick="showLoveLetter()">
+        <i class="fas fa-envelope-heart"></i>
+        <span>Doğum Günü Mektubu</span>
+      </button>
+    </div>
+  </section>
+
+  <!-- Modal for Love Letter -->
+  <div id="letterModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeLoveLetter()">&times;</span>
+      <div class="letter-paper">
+        <div class="letter-content">
+          <h3>Canım Aşkım,</h3>
+          <p>Bugün senin doğum günü.(Yani pek değil ama olsundu hehe). Bazen yanında olmayışım, ellerine dokunamayışım, gözlerinin içine bakarak "seni çok seviyorum" diyemeyişim beni deli gibi üzse de kalbim her an seninle ve hep öyle kalacak.</p>
+          <p>Seninle bir gelecek hayal ediyorum. Aynı evde uyanmak, kahvemizi birlikte içmek, akşamları aynı masaya oturmak. Hayal değil bunlar, sadece biraz zaman istiyor. Biz o zamanı sabırla bekleyeceğiz. Çünkü her saniyesi seninle geçen bir ömür, o bekleyişe fazlasıyla değer.</p>
+          <p>Bugün doğum günün. Ve ben isterdim ki yanında olayım, gözlerinin içine bakarak bu sözleri söyleyeyim. Sana sarılayım, gülüşünü izleyeyim, saçını okşayayım. Ama şimdilik sadece bu satırları yazabiliyorum sana.</p>
+          <p class="love-signature">Seni çok seviyorum.<br>İyi ki varsın.<br>İyi ki benim sevgilimsin.<br>Doğum günün kutlu olsun.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Geleceğe Mektup -->
+  <section id="future">
+    <div class="letter-container">
+      <p class="love-letter">Birlikte nice yıllar yaşayacağız. Bu siteyi her yıl yeniden açacağız. Seni sonsuz seviyorum... 💌</p>
+    </div>
+  </section>
+
+  <!-- 7. Footer -->
+  <footer>
+    <div class="footer-content">
+      <p>Bu site tamamen senin için hazırlandı. 💻 Cemre'den biricik aşkina.</p>
+      <div class="social-icons">
+        <i class="fas fa-heart"></i>
+        <i class="fas fa-kiss-wink-heart"></i>
+        <i class="fas fa-heart"></i>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function scrollToSection(id) {
+      document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function showSurprise(type) {
+      const messages = {
+        message: '🎂 Sana özel doğum günü mesajım: Seni çok seviyorum!',
+        video: '📹 Video sürprizi hazır!',
+        plans: '📝 Gelecek planlarımız burada!'
+      };
+      alert(messages[type]);
+    }
+
+    function playBirthdayVideo() {
+      const video = document.getElementById('birthday-video');
+      const overlay = document.querySelector('.video-overlay');
+      
+      video.style.display = 'block';
+      overlay.style.display = 'none';
+      video.play();
+    }
+
+    // Uçuşan kalpler animasyonu
+    function createHeart() {
+      const heart = document.createElement('div');
+      heart.classList.add('heart');
+      heart.innerHTML = '❤️';
+      heart.style.left = Math.random() * 100 + 'vw';
+      heart.style.animationDuration = Math.random() * 3 + 2 + 's';
+      document.querySelector('.floating-hearts').appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+
+    setInterval(createHeart, 300);
+
+    function showLoveLetter() {
+      const modal = document.getElementById('letterModal');
+      modal.style.display = 'block';
+      
+      // Add show class for animation
+      setTimeout(() => {
+        modal.querySelector('.modal-content').classList.add('show');
+      }, 10);
+    }
+
+    function closeLoveLetter() {
+      const modal = document.getElementById('letterModal');
+      modal.querySelector('.modal-content').classList.remove('show');
+      
+      // Wait for animation to finish
+      setTimeout(() => {
+        modal.style.display = 'none';
+      }, 300);
+    }
+
+    // Close modal when clicking outside
+    window.onclick = function(event) {
+      const modal = document.getElementById('letterModal');
+      if (event.target == modal) {
+        closeLoveLetter();
+      }
+    }
+  </script>
+</body>
+</html> 
